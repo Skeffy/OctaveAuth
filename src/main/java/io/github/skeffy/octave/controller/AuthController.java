@@ -1,5 +1,18 @@
 package io.github.skeffy.octave.controller;
 
+import com.google.api.client.googleapis.auth.oauth2.GoogleIdToken;
+import io.github.skeffy.octave.security.GoogleTokenVerifier;
+import io.github.skeffy.octave.security.jwt.JwtService;
+import jakarta.servlet.http.Cookie;
+import jakarta.servlet.http.HttpServletResponse;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.Map;
+
+@RestController
+@RequestMapping("/api/auth")
 public class AuthController {
 
     private final JwtService jwtService;
