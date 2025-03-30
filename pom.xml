@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>io.github.skeffy</groupId>
 	<artifactId>octave</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.2-SNAPSHOT</version>
 	<name>Octave</name>
 	<description>Backend for codename Octave</description>
 	<url/>
