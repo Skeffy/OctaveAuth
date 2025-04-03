@@ -24,7 +24,7 @@ jobs:
       run: sed -i 's/<google_id>/${{ secrets.GOOGLE_CLIENT_ID }}/' src/main/resources/apllication.properties
 
     - name: update google secret
-      run: sed -i 's/<google_secret>/${{ secrets.GOOGLE_SECRET }}/' src/main/resources/apllication.properties
+      run: sed -i 's/<google_secret>/${{ secrets.GOOGLE_CLIENT_SECRET }}/' src/main/resources/apllication.properties
     
     - name: Set up Docker Buildx
       uses: docker/setup-buildx-action@v3
