@@ -6,6 +6,8 @@ public interface UserDao {
 
     User getUserByEmail(String email);
 
+    String getUserIdByEmail(String email);
+
     User createUser(User newUser);
 
     int deleteUser(User user);
