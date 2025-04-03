@@ -11,20 +11,22 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    - uses: actions/checkout@v3
+    
     - name: update db url
-      run: sed -i 's/<db_url>/${{ secrets.DB_URL }}/' src/main/resources/apllication.properties
+      run: sed -i 's%<db_url>%${{ secrets.DB_URL }}%' src/main/resources/application.properties
 
     - name: update db user
-      run: sed -i 's/<db_user>/${{ secrets.DB_USER }}/' src/main/resources/apllication.properties
+      run: sed -i 's%<db_user>%${{ secrets.DB_USER }}%' src/main/resources/application.properties
 
     - name: update db pass
-      run: sed -i 's/<db_pass>/${{ secrets.DB_PASS }}/' src/main/resources/apllication.properties
+      run: sed -i 's%<db_pass>%${{ secrets.DB_PASS }}%' src/main/resources/application.properties
 
     - name: update google client id
-      run: sed -i 's/<google_id>/${{ secrets.GOOGLE_CLIENT_ID }}/' src/main/resources/apllication.properties
+      run: sed -i 's%<google_id>%${{ secrets.GOOGLE_CLIENT_ID }}%' src/main/resources/application.properties
 
     - name: update google secret
-      run: sed -i 's/<google_secret>/${{ secrets.GOOGLE_SECRET }}/' src/main/resources/apllication.properties
+      run: sed -i 's%<google_secret>%${{ secrets.GOOGLE_CLIENT_SECRET }}%' src/main/resources/application.properties
     
     - name: Set up Docker Buildx
       uses: docker/setup-buildx-action@v3
