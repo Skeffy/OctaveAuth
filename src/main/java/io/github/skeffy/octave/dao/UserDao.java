@@ -4,9 +4,9 @@ import io.github.skeffy.octave.model.User;
 
 public interface UserDao {
 
-    User getUserByEmail(String email);
+    User getUserByUsername(String username);
 
-    String getUserIdByEmail(String email);
+    User getUserByEmail(String email);
 
     User createUser(User newUser);
 
