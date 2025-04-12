@@ -20,6 +20,24 @@ public class JdbcUserDao implements UserDao{
     }
 
     @Override
+    public User getUserByUsername(String username) {
+        User user = null;
+        String sql = "SELECT * FROM users WHERE username = ?";
+        try {
+            SqlRowSet results = jdbcTemplate.queryForRowSet(sql, username);
+            if (results.next()) {
+                user = mapRowToUser(results);
+            } else {
+                return null;
+            }
+        }
+        catch (CannotGetJdbcConnectionException e) {
+            throw new DaoException("Unable to connect to database", e);
+        }
+        return user;
+    }
+
+    @Override
     public User getUserByEmail(String email) {
         User user = null;
         String sql = "SELECT * FROM users WHERE email = ?";
@@ -35,24 +53,6 @@ public class JdbcUserDao implements UserDao{
             throw new DaoException("Unable to connect to database", e);
         }
         return user;
-    }
-
-    @Override
-    public String getUserIdByEmail(String email) {
-        String id = null;
-        String sql = "SELECT * FROM users WHERE email = ?";
-        try {
-            SqlRowSet results = jdbcTemplate.queryForRowSet(sql, email);
-            if (results.next()) {
-                id = results.getString("user_id");
-            } else {
-                return null;
-            }
-        }
-        catch (CannotGetJdbcConnectionException e) {
-            throw new DaoException("Unable to connect to database", e);
-        }
-        return id;
     }
 
     @Override
