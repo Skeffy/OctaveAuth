@@ -1,4 +1,4 @@
-package com.techelevator.security.jwt;
+package io.github.skeffy.octave.security.jwt;
 
 import io.jsonwebtoken.*;
 import io.jsonwebtoken.io.Decoders;
@@ -27,18 +27,18 @@ public class TokenProvider implements InitializingBean {
 
     private final String base64Secret;
     private final long tokenValidityInMilliseconds;
-    private final long tokenValidityInMillisecondsForRememberMe;
+    private final long refreshValidityInMilliseconds;
 
     private Key key;
 
 
     public TokenProvider(
             @Value("${jwt.base64-secret}") String base64Secret,
-            @Value("${jwt.token-validity-in-seconds}") long tokenValidityInSeconds,
-            @Value("${jwt.token-validity-in-seconds-for-remember-me}") long tokenValidityInSecondsForRememberMe) {
+            @Value("${jwt.token-validity}") int tokenValidity,
+            @Value("${jwt.refresh-validity}") int refreshValidity) {
         this.base64Secret = base64Secret;
-        this.tokenValidityInMilliseconds = tokenValidityInSeconds * 1000;
-        this.tokenValidityInMillisecondsForRememberMe = tokenValidityInSecondsForRememberMe * 1000;
+        this.tokenValidityInMilliseconds = tokenValidity;
+        this.refreshValidityInMilliseconds = refreshValidity;
     }
 
     @Override
@@ -47,7 +47,7 @@ public class TokenProvider implements InitializingBean {
         this.key = Keys.hmacShaKeyFor(keyBytes);
     }
 
-    public String createToken(Authentication authentication, boolean rememberMe) {
+    public String createToken(Authentication authentication) {
         List<String> authoritiesList = new ArrayList<>();
         Collection<? extends GrantedAuthority> authoritiesCollection = authentication.getAuthorities();
         for (GrantedAuthority ga : authoritiesCollection) {
@@ -57,12 +57,27 @@ public class TokenProvider implements InitializingBean {
         String authorities = String.join(",", authoritiesList);
 
         long now = (new Date()).getTime();
-        Date validity;
-        if (rememberMe) {
-            validity = new Date(now + this.tokenValidityInMillisecondsForRememberMe);
-        } else {
-            validity = new Date(now + this.tokenValidityInMilliseconds);
+        Date validity = new Date(now + this.tokenValidityInMilliseconds);;
+
+        return Jwts.builder()
+                .setSubject(authentication.getName())
+                .claim(AUTHORITIES_KEY, authorities)
+                .signWith(key, SignatureAlgorithm.HS512)
+                .setExpiration(validity)
+                .compact();
+    }
+
+    public String createRefresh(Authentication authentication) {
+        List<String> authoritiesList = new ArrayList<>();
+        Collection<? extends GrantedAuthority> authoritiesCollection = authentication.getAuthorities();
+        for (GrantedAuthority ga : authoritiesCollection) {
+            authoritiesList.add(ga.getAuthority());
         }
+
+        String authorities = String.join(",", authoritiesList);
+
+        long now = (new Date()).getTime();
+        Date validity = new Date(now + this.refreshValidityInMilliseconds);;
 
         return Jwts.builder()
                 .setSubject(authentication.getName())
