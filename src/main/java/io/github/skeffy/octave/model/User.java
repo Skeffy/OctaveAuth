@@ -1,25 +1,16 @@
 package io.github.skeffy.octave.model;
 
-import jakarta.validation.constraints.NotNull;
-import org.springframework.validation.annotation.Validated;
-
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
-@Validated
 public class User {
 
-    @NotNull
     private String id;
-    @NotNull
     private String username;
-    @NotNull
     private String name;
-    @NotNull
     private String email;
     private String bio;
-    @NotNull
     private Set<Authority> authorities = new HashSet<>();
 
     public User(String id, String username, String name, String email, String bio, String authorities) {
@@ -29,6 +20,12 @@ public class User {
         this.email = email;
         this.bio = bio;
         if(authorities != null) this.setAuthorities(authorities);
+    }
+
+    public User(String username, String name, String email) {
+        this.username = username;
+        this.name = name;
+        this.email = email;
     }
 
     public User() {
