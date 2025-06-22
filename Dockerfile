@@ -5,6 +5,7 @@ WORKDIR /app
 COPY .mvn/ .mvn
 COPY --chmod=0755 mvnw pom.xml ./
 RUN ./mvnw dependency:go-offline
+EXPOSE 8080
 
 COPY src ./src
 
