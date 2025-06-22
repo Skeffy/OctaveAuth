@@ -7,7 +7,7 @@ import org.springframework.web.client.RestTemplate;
 
 public class GoogleUserService {
 
-    public static String API = "https://oauth2.googleapis.com/tokeninfo?access_token=";
+    public static String API = "https://www.googleapis.com/oauth2/v3/tokeninfo?id_token=";
     private final RestTemplate restTemplate = new RestTemplate();
 
     public GoogleResponseDto get(String token) {
