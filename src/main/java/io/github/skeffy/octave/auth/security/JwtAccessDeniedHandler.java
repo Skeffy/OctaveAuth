@@ -1,4 +1,4 @@
-package io.github.skeffy.octave.security;
+package io.github.skeffy.octave.auth.security;
 
 import org.springframework.security.access.AccessDeniedException;
 import org.springframework.security.web.access.AccessDeniedHandler;

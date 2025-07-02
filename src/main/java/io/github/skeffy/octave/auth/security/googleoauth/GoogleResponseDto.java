@@ -1,4 +1,4 @@
-package io.github.skeffy.octave.security.googleoauth;
+package io.github.skeffy.octave.auth.security.googleoauth;
 
 public class GoogleResponseDto {
 

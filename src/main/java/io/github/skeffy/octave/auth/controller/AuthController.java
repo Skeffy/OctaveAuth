@@ -1,13 +1,13 @@
-package io.github.skeffy.octave.controller;
+package io.github.skeffy.octave.auth.controller;
 
-import io.github.skeffy.octave.dao.UserDao;
-import io.github.skeffy.octave.exception.DaoException;
-import io.github.skeffy.octave.model.LoginResponseDto;
-import io.github.skeffy.octave.model.RegisterUserDto;
-import io.github.skeffy.octave.model.User;
-import io.github.skeffy.octave.security.CustomAuthenticationManager;
-import io.github.skeffy.octave.security.googleoauth.GoogleUserService;
-import io.github.skeffy.octave.security.jwt.TokenProvider;
+import io.github.skeffy.octave.auth.dao.UserDao;
+import io.github.skeffy.octave.auth.exception.DaoException;
+import io.github.skeffy.octave.auth.model.LoginResponseDto;
+import io.github.skeffy.octave.auth.model.RegisterUserDto;
+import io.github.skeffy.octave.auth.model.User;
+import io.github.skeffy.octave.auth.security.CustomAuthenticationManager;
+import io.github.skeffy.octave.auth.security.googleoauth.GoogleUserService;
+import io.github.skeffy.octave.auth.security.jwt.TokenProvider;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;

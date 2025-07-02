@@ -1,4 +1,4 @@
-package io.github.skeffy.octave.security.jwt;
+package io.github.skeffy.octave.auth.security.jwt;
 
 import io.jsonwebtoken.*;
 import io.jsonwebtoken.io.Decoders;

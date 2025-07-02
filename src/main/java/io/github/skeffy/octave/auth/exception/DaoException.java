@@ -1,4 +1,4 @@
-package io.github.skeffy.octave.exception;
+package io.github.skeffy.octave.auth.exception;
 
 public class DaoException extends RuntimeException{
     public DaoException() {

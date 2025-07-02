@@ -1,4 +1,4 @@
-package io.github.skeffy.octave.security.googleoauth;
+package io.github.skeffy.octave.auth.security.googleoauth;
 
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
