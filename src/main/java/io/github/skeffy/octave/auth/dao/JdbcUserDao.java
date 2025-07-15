@@ -1,7 +1,7 @@
-package io.github.skeffy.octave.dao;
+package io.github.skeffy.octave.auth.dao;
 
-import io.github.skeffy.octave.exception.DaoException;
-import io.github.skeffy.octave.model.User;
+import io.github.skeffy.octave.auth.exception.DaoException;
+import io.github.skeffy.octave.auth.model.User;
 import org.springframework.jdbc.CannotGetJdbcConnectionException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;

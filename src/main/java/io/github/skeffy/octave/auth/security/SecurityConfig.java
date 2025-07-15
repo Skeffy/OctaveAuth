@@ -1,8 +1,8 @@
-package io.github.skeffy.octave.security;
+package io.github.skeffy.octave.auth.security;
 
-import io.github.skeffy.octave.security.jwt.JwtConfigurer;
-import io.github.skeffy.octave.security.jwt.JwtFilter;
-import io.github.skeffy.octave.security.jwt.TokenProvider;
+import io.github.skeffy.octave.auth.security.jwt.JwtConfigurer;
+import io.github.skeffy.octave.auth.security.jwt.JwtFilter;
+import io.github.skeffy.octave.auth.security.jwt.TokenProvider;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 

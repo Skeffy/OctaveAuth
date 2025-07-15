@@ -1,8 +1,8 @@
-package io.github.skeffy.octave.security;
+package io.github.skeffy.octave.auth.security;
 
-import io.github.skeffy.octave.dao.UserDao;
-import io.github.skeffy.octave.model.Authority;
-import io.github.skeffy.octave.model.User;
+import io.github.skeffy.octave.auth.dao.UserDao;
+import io.github.skeffy.octave.auth.model.User;
+import io.github.skeffy.octave.auth.model.Authority;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.security.core.GrantedAuthority;

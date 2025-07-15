@@ -1,6 +1,6 @@
-package io.github.skeffy.octave.dao;
+package io.github.skeffy.octave.auth.dao;
 
-import io.github.skeffy.octave.model.User;
+import io.github.skeffy.octave.auth.model.User;
 
 public interface UserDao {
 

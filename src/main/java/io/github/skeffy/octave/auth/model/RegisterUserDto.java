@@ -1,4 +1,4 @@
-package io.github.skeffy.octave.model;
+package io.github.skeffy.octave.auth.model;
 
 import jakarta.validation.constraints.NotEmpty;
 

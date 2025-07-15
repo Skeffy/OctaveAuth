@@ -9,10 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>io.github.skeffy</groupId>
-	<artifactId>octave</artifactId>
-	<version>0.0.2-SNAPSHOT</version>
-	<name>Octave</name>
-	<description>Backend for codename Octave</description>
+	<artifactId>octave-auth</artifactId>
+	<version>0.1.0-SNAPSHOT</version>
+	<name>Octave Auth</name>
+	<description>Auth service for Octave</description>
 	<url/>
 	<licenses>
 		<license/>
