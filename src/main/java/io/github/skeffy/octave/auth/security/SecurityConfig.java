@@ -54,7 +54,7 @@ public class SecurityConfig{
         http
                 .cors(cors -> {}) // use your CorsFilter bean
                 .csrf(csrf -> csrf
-                        .ignoringRequestMatchers("/login")
+                        .ignoringRequestMatchers("/auth/login")
                         .disable()
                 )
                 .exceptionHandling(exceptions -> exceptions
@@ -62,7 +62,7 @@ public class SecurityConfig{
                         .accessDeniedHandler(jwtAccessDeniedHandler)
                 )
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/login", "/register", "/refresh").permitAll()
+                        .requestMatchers("/auth/login", "/auth/register", "/auth/refresh").permitAll()
                         .anyRequest().authenticated()
                 )
                 .addFilterBefore(new JwtFilter(tokenProvider), UsernamePasswordAuthenticationFilter.class) // or your existing jwtFilter bean
