@@ -19,7 +19,7 @@ import org.springframework.web.server.ResponseStatusException;
 import java.util.*;
 
 @RestController
-@RequestMapping("/")
+@RequestMapping("/auth")
 public class AuthController {
 
     private final CustomAuthenticationManager authenticationManager;
