@@ -78,6 +78,7 @@ public class SecurityConfig{
         CorsConfiguration config = new CorsConfiguration();
         config.addAllowedOrigin("http://localhost:5173"); // Allow the frontend application
         config.addAllowedOrigin("http://localhost:8080");
+        config.addAllowedOrigin("https://octavemusic.skeffy.dev");
         config.addAllowedMethod("*"); // Allow all HTTP methods
         config.addAllowedHeader("*"); // Allow all headers
         config.setAllowCredentials(true); // Allow credentials (cookies, authorization headers)
